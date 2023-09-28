@@ -5,13 +5,12 @@ import { TodoService } from './todo.service';
 export class TodosController {
   constructor(private todoService: TodoService) {}
   @Get()
-  findAll(): string {
+  findAll() {
     return this.todoService.getTodos();
   }
 
   @Post('/post')
   createTodo(@Body('desc') desc: string, @Body('status') status: string) {
-    const result = this.todoService.createTodos(desc, status);
-    return result;
+    return this.todoService.createTodos(status, desc);
   }
 }

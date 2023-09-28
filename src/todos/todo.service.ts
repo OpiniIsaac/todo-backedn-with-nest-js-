@@ -7,7 +7,8 @@ import { Todo } from './todo.model';
 export class TodoService {
   constructor(@InjectModel('Todo') private readonly todoModel: Model<Todo>) {}
   getTodos() {
-    return 'got toods';
+    const allTodos = this.todoModel.find();
+    return allTodos;
   }
   async createTodos(desc: string, status: string) {
     const newTodo = new this.todoModel({ desc, status });
