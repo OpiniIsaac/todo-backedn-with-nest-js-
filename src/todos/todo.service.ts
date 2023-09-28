@@ -15,4 +15,10 @@ export class TodoService {
     await newTodo.save();
     return newTodo;
   }
+  async deleteTodos(params) {
+    const deleteTodos = await this.todoModel
+      .findByIdAndDelete({ _id: params })
+      .exec();
+    return deleteTodos;
+  }
 }
