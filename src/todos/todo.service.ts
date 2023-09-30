@@ -16,9 +16,13 @@ export class TodoService {
     return newTodo;
   }
   async deleteTodos(params) {
-    const deleteTodos = await this.todoModel
-      .findByIdAndDelete({ _id: params })
-      .exec();
+    const deleteTodos = await this.todoModel.findByIdAndDelete(params).exec();
     return deleteTodos;
+  }
+  async updateTodos(params) {
+    const updateTodosTodos = await this.todoModel
+      .findByIdAndUpdate({ _id: params })
+      .exec();
+    return updateTodosTodos;
   }
 }
