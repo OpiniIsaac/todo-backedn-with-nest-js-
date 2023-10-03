@@ -5,7 +5,7 @@ export const UserModel = new mongoose.Schema({
   password: String,
 });
 
-export interface User {
+export class User {
   username: string;
   password: string;
 }
